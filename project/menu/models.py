@@ -26,11 +26,14 @@ class Home_banners(models.Model):
     name = models.CharField(max_length=255)
     media_id = models.ManyToManyField(Medias, related_name='banner')
 
+class Couponts(models.Model):
+    code = models
+
 class Menus(models.Model):
     name = models.CharField(max_length=255)
     category_id = models.ForeignKey(Category, related_name='menus', on_delete=models.CASCADE)
-    price = models.CharField(max_length=255)
-    promo_price = models.CharField(max_length=255)
+    price = models.PositiveIntegerField(max_length=255)
+    promo_price = models.PositiveIntegerField(max_length=255)
     promo = models.BooleanField(default=False)
     promo_id = models.ForeignKey(Promos, related_name='menus', on_delete=models.CASCADE)
     media_id = models.ManyToManyField(Medias, related_name='menus')
